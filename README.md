@@ -33,5 +33,6 @@ pnpm check
 | Path              | Purpose                                |
 | ----------------- | -------------------------------------- |
 | `packages/ingest` | Fetch and parse external planning data |
+| `packages/db`     | Drizzle tables, client and migrations  |
 | `docs/adr`        | Architecture decision records          |
 | `.github`         | CI workflow and pull request template  |

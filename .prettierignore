@@ -2,3 +2,4 @@ pnpm-lock.yaml
 coverage/
 dist/
 .next/
+packages/db/migrations/

@@ -9,5 +9,9 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
+  },
+  "dependencies": {
+    "@property-progress/db": "workspace:*",
+    "zod": "4.6.7"
   }
 }
