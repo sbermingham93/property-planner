@@ -1,0 +1,7 @@
+# Same checks as CI, so nothing is pushed that CI would reject.
+if ! pnpm --version >/dev/null 2>&1; then
+  echo "pre-push: pnpm is missing or broken. Install it with: npm install -g pnpm@12.16.1" >&2
+  exit 1
+fi
+
+pnpm check

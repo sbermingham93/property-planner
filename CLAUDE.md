@@ -16,7 +16,7 @@ Analysis of the Irish planning permission system: where applications stall, why 
 
 ## Commands
 
-- `pnpm check`: format check, lint, typecheck, tests. Must pass before any commit or PR.
+- `pnpm check`: format check, lint, typecheck, tests. The same checks CI runs; a pre-push hook runs it and blocks the push on failure.
 - `pnpm format`: fix formatting. `pnpm db:up` / `pnpm db:down`: local Postgres.
 
 ## Code principles
