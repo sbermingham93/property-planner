@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+.next/
+*.tsbuildinfo
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Raw data and downloaded documents never go in git
+data/
+
+.DS_Store
