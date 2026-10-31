@@ -110,6 +110,12 @@ Query the service with `outSR=4326` so geometry arrives as longitude and latitud
 
 ## Known issues (pilot councils)
 
+From the first full load on 2026-10-28 (Wicklow and Dublin City; 38,950 records, none rejected by the schema):
+
+- History is shorter than the dataset's "since 2012" description: Wicklow starts in January 2017, Dublin City in January 2019.
+- The service repeats some applications (122 in Wicklow, 47 in Dublin City). The loader keeps the record with the highest `OBJECTID`.
+- About 30% of Wicklow applications have no decision date; to be checked against status and withdrawn dates.
+
 - Residential units: blank for Dún Laoghaire-Rathdown, zero for Fingal, sparse for Dublin City and South Dublin.
 - Dublin City: newest record July 2026 and no council file links.
 - Application numbers can carry trailing spaces (Fingal).

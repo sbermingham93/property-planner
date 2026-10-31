@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./testing": "./src/testing.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -17,6 +18,8 @@
     "postgres": "3.4.9"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.5.11",
+    "@electric-sql/pglite-postgis": "0.2.11",
     "drizzle-kit": "0.31.11"
   }
 }

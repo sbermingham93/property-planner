@@ -18,6 +18,7 @@ Analysis of the Irish planning permission system: where applications stall, why 
 
 - `pnpm check`: format check, lint, typecheck, tests. The same checks CI runs; a pre-push hook runs it and blocks the push on failure.
 - `pnpm format`: fix formatting. `pnpm db:up` / `pnpm db:down`: local Postgres.
+- `pnpm --filter @property-progress/ingest ingest:national [--council <slug>]... [--since YYYY-MM-DD]`: load the national dataset into `DATABASE_URL` (all pilot councils by default).
 
 ## Code principles
 
@@ -36,7 +37,7 @@ Code should be clean, easy to understand, and easy to extend.
 - Everything from outside the process (HTTP responses, scraped HTML, PDFs, LLM output, env vars) is `unknown` until parsed with a zod schema at the boundary. Never cast it.
 - Imports use explicit `.ts` extensions and `import type` for types.
 - Errors: throw `Error` subclasses with context (source, id, URL); never swallow. No `console.log`; use the logger once it exists (`console.warn`/`console.error` meanwhile).
-- Tests next to the code as `*.test.ts`. Parsers and scrapers are tested against saved real responses in `__fixtures__/`, never live sites. Database code is tested against a real Postgres, not mocks.
+- Tests next to the code as `*.test.ts`. Parsers and scrapers are tested against saved real responses in `__fixtures__/`, never live sites. Database code is tested against a real Postgres, not mocks: `createTestDb()` from `@property-progress/db/testing` gives an in-process Postgres with PostGIS (PGlite), migrated to the latest schema; share one per test file.
 - Schema changes only through Drizzle: edit `packages/db/src/schema/`, run `pnpm --filter @property-progress/db db:generate`, commit the migration. Any hand edit to generated SQL is explained in a comment at the top of that file.
 
 ## Data handling

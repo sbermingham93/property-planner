@@ -8,10 +8,13 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "ingest:national": "node --env-file-if-exists=../../.env src/cli/ingest-national.ts"
   },
   "dependencies": {
     "@property-progress/db": "workspace:*",
+    "drizzle-orm": "0.45.4",
+    "pino": "10.4.0",
     "zod": "4.6.7"
   }
 }
